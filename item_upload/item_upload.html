@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WhuYu·武汉大学二手交易平台</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        /* 自定义样式 */
+        .logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .logo img {
+            width: 40px;
+            height: 40px;
+            margin-right: 8px;
+            filter: invert(1);
+        }
+        .logo a {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: black;
+        }
+        .header {
+            background-size: cover;
+            background-position: center;
+            height: 80px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+        }
+        .search-container {
+        display: flex;
+        align-items: center;
+        border-radius: 20px;
+        border: 1px solid rgb(0, 0, 0)e0e;
+        padding: 5px;
+        }
+        .search-input {
+            background-color: transparent;
+            flex-grow: 1;
+            border: none;
+        }
+        .search-btn {
+            background-color: transparent;
+            border: none;
+        }
+        .search-btn img {
+            width: 20px;
+            height: 20px;
+        }
+
+    </style>
+</head>
+<body onload="initMap()">
+    <header class="header">
+        <nav class="container mx-auto py-4 flex items-center justify-between">
+            <div class="logo">
+                <a href="../index/index.html" class="flex items-center">
+                    <img src="../img/Logo.png" alt="Logo">
+                    <span class="text-lg font-bold">WhuYu</span>
+                </a>
+            </div>
+        </nav>
+    </header>
+
+
+    <section id="hello" class="bg-gray-100">
+        <div class="container mx-auto py-8">
+            <h1 class="text-4xl font-bold">物品发布</h1>
+    </div>
+    </section>
+
+    <section id="map" class="bg-white">
+        <div class="container mx-auto py-8">
+            <div id="container"></div>
+        </div>
+    </section>
+
+    <section id="contact" class="bg-gray-800 text-black">
+        <div class="container mx-auto py-8">
+            <p class="text-lg text-white">请填写您发布物品的详细信息。点击地图位置选择发布地点经纬度。</p>
+            <div class="mt-4">
+                <input type="text" name="name" id="name" placeholder="物品名称" required class="w-full px-4 py-2 rounded mb-4">
+                <input type="number" name="price" id="price" placeholder="物品价格，单位：元" required class="w-full px-4 py-2 rounded mb-4">
+                <select name="category" id="category" required class="w-full px-4 py-2 rounded mb-4"> <!-- 添加这里 -->
+                    <option value="">选择物品类别</option>
+                    <option value="category1">教材</option>
+                    <option value="category1">学习资料</option>
+                    <option value="category2">电子产品</option>
+                    <option value="category3">生活用品</option>
+                    <option value="category4">其他</option>
+                </select>
+                <div class="flex space-x-4 mb-4">  <!-- 修改这里 -->
+                    <input type="text" name="latitude" id="latitude" placeholder="纬度" required class="w-full px-4 py-2 rounded">
+                    <input type="text" name="longitude" id="longitude" placeholder="经度" required class="w-full px-4 py-2 rounded">
+                </div>
+                <textarea name="message" id="message" placeholder="物品的详细信息" required class="w-full px-4 py-2 rounded mb-4"></textarea>
+                <button id="submit_item" class="px-6 py-3 bg-blue-500 text-white font-bold rounded hover:bg-blue-600">提交</button>
+            </div>
+        </div>
+    </section>
+
+
+    <footer class="bg-gray-800 text-white">
+        <div class="container mx-auto py-4">
+            <p>版权所有 &copy; 2023 JavaEdge</p>
+        </div>
+    </footer>
+    <script src="https://map.qq.com/api/gljs?v=1.exp&key=SMQBZ-FY7KW-GK4RR-R63V4-VRG66-OFBJZ"></script>
+    <script>
+        function initMap() {
+            //定义地图中心点坐标
+            var center = new TMap.LatLng(30.539120, 114.364484)
+            //定义map变量，调用 TMap.Map() 构造函数创建地图
+            var map = new TMap.Map(document.getElementById('container'), {
+                center: center,//设置地图中心点坐标
+                zoom: 17.2,   //设置地图缩放级别
+                pitch: 43.5,  //设置俯仰角
+                rotation: 45    //设置地图旋转角度
+            });
+            var clickHandler=function(evt){
+                var lat = evt.latLng.getLat().toFixed(6);
+                var lng = evt.latLng.getLng().toFixed(6);
+                console.log("您点击的的坐标是："+ lat + "," + lng);
+                // 将经纬度显示在input元素上
+                document.querySelector('input[name="latitude"]').value = lat;
+                document.querySelector('input[name="longitude"]').value = lng;
+            }
+            //Map实例创建后，通过on方法绑定点击事件
+            map.on("click",clickHandler)
+        }
+    </script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="item_upload.js"></script>
+</body>
+</html>

@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WhuYu·武汉大学二手交易平台</title>
+    <!-- 导入 Tailwind CSS 样式表 -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        /* 自定义样式 */
+        .logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .logo img {
+            width: 40px;
+            height: 40px;
+            margin-right: 8px;
+            filter: invert(1); /* Add this line to invert the logo color to white */
+        }
+        .logo a {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: black;
+        }
+        .header {
+            background-size: cover;
+            background-position: center;
+            height: 80px; /* Adjust the height as needed */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+        }
+        .search-container {
+        display: flex;
+        align-items: center;
+        border-radius: 20px;  /* 设置圆弧边界 */
+        border: 1px solid rgb(0, 0, 0)e0e;
+        padding: 5px;
+        }
+        .search-input {
+            background-color: transparent;
+            flex-grow: 1;
+            border: none;
+        }
+        .search-btn {
+            background-color: transparent;
+            border: none;
+        }
+        .search-btn img {
+            width: 20px;
+            height: 20px;
+        }
+
+    </style>
+</head>
+<body onload="initMap()">
+    <header class="header">
+        <nav class="container mx-auto py-4 flex items-center justify-between">
+            <!-- 将您的公司标志/logo添加到下面的div元素中 -->
+            <div class="logo">
+                <a href="../index/index.html" class="flex items-center">
+                    <img src="../img/Logo.png" alt="Logo">
+                    <span class="text-lg font-bold">WhuYu</span>
+                </a>
+            </div>
+            <!-- 添加导航栏和搜索框 -->
+            <div class="search-container">
+                <input type="text" class="search-input" placeholder="搜索">
+                <button class="search-btn">
+                    <img src="../img/search.png" alt="搜索">
+                </button>
+            </div>
+        </nav>
+    </header>
+
+
+    <section id="hello" class="bg-gray-100">
+        <div class="container mx-auto py-8">
+            <h1 class="text-4xl font-bold">欢迎来到武汉大学二手交易平台</h1>
+    </div>
+    </section>
+
+    <section id="map" class="bg-white">
+        <div class="container mx-auto py-8">
+            <div id="container"></div>
+        </div>
+    </section>
+
+    <section id="products" class="bg-gray-100" >
+        <div class="container mx-auto py-8">
+            <h2 class="text-3xl font-bold">主要功能</h2>
+            <div class="grid grid-cols-3 gap-8" style="grid-template-columns: 1fr 2fr;">
+                <div class="bg-white rounded-lg shadow p-6  max-h-64 overflow-auto">
+                    <img src="../img/GN.png" width="50">
+                    <a href="../item_upload/item_upload.html" class="text-xl font-bold">物品发布</a>
+                    <h3 class="text-xl font-bold">购物清单</h3>
+                </div>
+                <div class="bg-white rounded-lg shadow p-6  max-h-64 overflow-auto">
+                    <img src="../img/message.png" width="50">
+                    <h3 class="text-xl font-bold">消息动态</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-gray-800 text-white">
+        <div class="container mx-auto py-4">
+            <p>版权所有 &copy; 2023 JavaEdge</p>
+        </div>
+    </footer>
+    <script src="https://map.qq.com/api/gljs?v=1.exp&key=SMQBZ-FY7KW-GK4RR-R63V4-VRG66-OFBJZ"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="index.js"></script>
+    <script>
+        var items = [];
+        $(document).ready(function(){
+            // 发送 GET 请求
+            fetch('http://localhost:5000/items',{
+                methods: 'GET',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            }).then(response => response.json())
+            .then(data => {
+                // 在这里处理返回的数据
+                items = data;
+            })
+            .catch(error => {
+                // 在这里处理错误
+                console.error('Error:', error);
+            });
+        });
+        function initMap() {
+            //定义地图中心点坐标
+            var center = new TMap.LatLng(30.539120, 114.364484)
+            //定义map变量，调用 TMap.Map() 构造函数创建地图
+            var map = new TMap.Map(document.getElementById('container'), {
+                center: center,//设置地图中心点坐标
+                zoom: 17.2,   //设置地图缩放级别
+                pitch: 43.5,  //设置俯仰角
+                rotation: 45    //设置地图旋转角度
+            });
+            for (var i = 0; i < items.length; i++){
+                var marker = new TMap.MultiMarker({
+                map: map,
+                styles: {
+                // 点标记样式
+                    marker: new TMap.MarkerStyle({
+                        width: 20, // 样式宽
+                        height: 30, // 样式高
+                        src:"../img/Marker.png", // 图片地址
+                        anchor: { x: 10, y: 30 }, // 描点位置
+                    }),
+                },
+                geometries: [{
+                    "id":i,
+                    "styleId": 'marker',
+                    "position": new TMap.LatLng(items[i]['coordinate'][0], items[i]['coordinate'][1]),
+                    id: 'marker' + i,
+                },
+                ],
+            });
+            }
+        }
+    </script>
+</body>
+</html>

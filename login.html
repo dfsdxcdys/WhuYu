@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>物品交易平台</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <style>
+        .center {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+        .input_area {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid #ccc;
+            padding: 20px;
+        }
+        .input_title1, .input_title2 {
+        text-align: center;
+        }
+        .input_title1 h1 {
+            font-size: 30px;
+            font-family: Arial, sans-serif;
+        }
+        .input_title2 h2 {
+            font-size: 20px;
+            font-family: Arial, sans-serif;
+        }
+        .input_box {
+        display: flex;
+        flex-direction: column;
+        }
+        .button-container button {
+        width: 100px;
+        height: 30px;
+        padding: 10px;
+        margin: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="center">
+        <div class="input_area">
+            <div class="input_title1">
+                <h1>欢迎来到物品交易平台</h1>
+            </div>
+            <div class="input_title2">
+                <h2>请登录或注册</h2>
+            </div>
+            <div class="input_box">
+                <input type="text" id="username" placeholder="用户名">
+                <input type="password" id="password" placeholder="密码">
+            </div>
+            <div class="button-container">
+                <button id="register">注册</button>
+                <button id="login">登录</button>
+            </div>
+        </div>
+    </div>
+    <div id="itemList"></div>
+    <script src="main.js"></script>
+</body>
+</html>

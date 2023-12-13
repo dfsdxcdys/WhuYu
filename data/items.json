@@ -1,0 +1,46 @@
+[
+    {
+        "id": 1,
+        "name": "吃鸡公煲",
+        "price": "40",
+        "message": "饿死了",
+        "coordinate": [
+            "30.524929",
+            "114.362598"
+        ],
+        "selectedValue": "category3"
+    },
+    {
+        "id": 2,
+        "name": "matlab实习心得",
+        "price": "100",
+        "message": "好难写",
+        "coordinate": [
+            "30.526416",
+            "114.361197"
+        ],
+        "selectedValue": "category1"
+    },
+    {
+        "id": 3,
+        "name": "想吃KFC",
+        "price": "50",
+        "message": "vivo50吃疯狂星期四",
+        "coordinate": [
+            "30.527816",
+            "114.359883"
+        ],
+        "selectedValue": "category3"
+    },
+    {
+        "id": 4,
+        "name": "1",
+        "price": "1",
+        "message": "跳了",
+        "coordinate": [
+            "30.537573",
+            "114.363257"
+        ],
+        "selectedValue": "category1"
+    }
+]
