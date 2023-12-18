@@ -7,8 +7,8 @@ $(document).ready(function(){
         var lng = $("#longitude").val();
         var coordinate = [lat,lng]
         var selectElement = document.getElementById('category');
+        var selectedValue = selectElement.options[selectElement.selectedIndex].text;
         console.log(selectElement);  // 输出选中的值
-        var selectedValue = selectElement.value;
         console.log(1);  // 输出选中的值
 
         fetch('http://localhost:5000/items', {

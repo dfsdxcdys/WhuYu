@@ -1,46 +1,24 @@
 [
     {
         "id": 1,
-        "name": "吃鸡公煲",
-        "price": "40",
-        "message": "饿死了",
+        "name": "可恶的小狗",
+        "price": "6",
+        "message": "6",
         "coordinate": [
-            "30.524929",
-            "114.362598"
+            "30.539407",
+            "114.366207"
         ],
-        "selectedValue": "category3"
+        "selectedValue": "学习资料"
     },
     {
         "id": 2,
-        "name": "matlab实习心得",
-        "price": "100",
-        "message": "好难写",
+        "name": "mikasa V200W",
+        "price": "400",
+        "message": "手感不错",
         "coordinate": [
-            "30.526416",
-            "114.361197"
+            "30.528198",
+            "114.362029"
         ],
-        "selectedValue": "category1"
-    },
-    {
-        "id": 3,
-        "name": "想吃KFC",
-        "price": "50",
-        "message": "vivo50吃疯狂星期四",
-        "coordinate": [
-            "30.527816",
-            "114.359883"
-        ],
-        "selectedValue": "category3"
-    },
-    {
-        "id": 4,
-        "name": "1",
-        "price": "1",
-        "message": "跳了",
-        "coordinate": [
-            "30.537573",
-            "114.363257"
-        ],
-        "selectedValue": "category1"
+        "selectedValue": "生活用品"
     }
 ]
