@@ -8,8 +8,7 @@ $(document).ready(function(){
         var coordinate = [lat,lng]
         var selectElement = document.getElementById('category');
         var selectedValue = selectElement.options[selectElement.selectedIndex].text;
-        console.log(selectElement);  // 输出选中的值
-        console.log(1);  // 输出选中的值
+        var timestamp = Date.now();
 
         fetch('http://localhost:5000/items', {
             method: 'POST',
@@ -21,7 +20,8 @@ $(document).ready(function(){
                 price: price,
                 message: message,
                 coordinate: coordinate,
-                selectedValue: selectedValue
+                selectedValue: selectedValue,
+                timestamp: timestamp
             })
         })        
         .then(response => response.json())

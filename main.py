@@ -54,6 +54,11 @@ def add_item():
     print("添加成功！")
     return jsonify({"message": "添加成功！"}), 201
 
+@app.route('/latest-items', methods=['GET'])
+def get_latest_items():
+    latest_items = items[-5:][::-1]
+    return jsonify(latest_items), 200
+
 @app.route('/items', methods=['GET'])
 def get_items():
     return jsonify(items), 200
