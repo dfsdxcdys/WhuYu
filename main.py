@@ -45,14 +45,15 @@ def add_item():
         "price": item['price'],
         "message": item['message'],
         "coordinate": item['coordinate'],
-        "selectedValue": item['selectedValue']
+        "selectedValue": item['selectedValue'],
+        "timestamp" : item['timestamp']
     }
     items.append(new_item)
     with open('./data/items.json', 'w', encoding='utf-8') as f:
         json.dump(items, f, ensure_ascii=False, indent=4)
     
-    print("添加成功！")
-    return jsonify({"message": "添加成功！"}), 201
+    print("添加成功！请返回主页地图查看您发布的物品。")
+    return jsonify({"message": "添加成功！请返回主页地图查看您发布的物品。"}), 201
 
 @app.route('/latest-items', methods=['GET'])
 def get_latest_items():

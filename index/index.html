@@ -4,8 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="./img/Logo.png" type="image/x-icon">
+    
     <title>WhuYu·武汉大学二手交易平台</title>
+    <link rel="icon"
+        href="../img/Logo.png">
 
     <!-- 导入 Tailwind CSS 样式表 -->
     <link href="../css/tailwind.min.css" rel="stylesheet">
@@ -25,7 +27,7 @@
             <!-- 添加导航栏和搜索框 -->
             <div class="flex items-center justify-center">
                 <select class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-gray-800 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">            
-                    <option value="">全部</option>
+                    <option value="" disabled selected>物品类别检索</option>
                     <option value="category1">教材</option>
                     <option value="category2">学习资料</option>
                     <option value="category3">电子产品</option>
@@ -52,14 +54,16 @@
 
     <section id="products" class="bg-gray-100">
         <div class="container mx-auto py-8">
-            <h2 class="text-3xl font-bold">主要功能</h2>
-            <div class="grid grid-cols-3 gap-8" style="grid-template-columns: 1fr 2fr;">
+            <h2 class="text-3xl font-bold">功能栏</h2>
+            <div class="grid grid-cols-3 gap-8" style="grid-template-columns: 1fr 2fr;margin-top: 10px;">
                 <div class="bg-white rounded-lg shadow p-6  max-h-64 overflow-auto">
-                    <img src="../img/GN.png" width="50">
+                    <img src="../img/GN.png" width="50" style="margin-top: 5px;">
                     <a href="../item_upload/item_upload.html" class="text-xl font-bold">物品发布</a>
+                    <p style="font-size: 18px; font-weight: bold;margin-top: 20px;">快来发布你想出售的物品信息吧！</p>                   
                 </div>
+                
                 <div class="bg-white rounded-lg shadow p-6  max-h-64 overflow-auto">
-                    <img src="../img/message.png" width="50">
+                    <img src="../img/message.png" width="50" style="margin-top: 5px;">
                         <h3 class="text-xl font-bold">消息动态</h3>
                 <div id="messages" class="mt-4">
                     <!-- 消息将在这里显示 -->
@@ -79,11 +83,15 @@
     </div>
 
     <!-- 显示购物车弹窗的按钮 -->
-    <button id="show-cart" class="fixed right-0 bottom-0 m-5 px-5 py-2 bg-blue-500 text-white rounded" style="z-index: 1010;">显示购物车</button>
+    <button id="show-cart" class="fixed right-0 bottom-0 m-5 px-5 py-2 bg-blue-200 text-black rounded" 
+        style="font-size: 20px;font-weight: bold;z-index: 1010;display: flex;align-items: center;">
+        <img src="../img/gwc.png" alt="购物车图标" style="width: 40px; height: 40px; margin-right: 10px;">
+        购物车
+    </button>
 
     <footer class="bg-gray-800 text-white">
-        <div class="container mx-auto py-4">
-            <p>版权所有 &copy; 2023 JavaEdge</p>
+        <div class="container mx-auto py-5">
+            <p> &copy; 2024 WhuYu · 武汉大学二手交易平台</p>
         </div>
     </footer>
     <script src="https://map.qq.com/api/gljs?v=1.exp&key=SMQBZ-FY7KW-GK4RR-R63V4-VRG66-OFBJZ"></script>
@@ -117,10 +125,10 @@
                     messageContainer.innerHTML = '';
                     // 显示最新的数据
                     data.forEach(item => {
-                        var timestamp = new Date(item.timestamp).toLocaleString();
+                        
                         var messageElement = document.createElement('div');
                         messageElement.innerHTML = `
-                            <div><strong>${timestamp},XX在[${item.coordinate}]发布了${item.name}!</strong></div>
+                            <div><strong>${item.timestamp}, 一位用户在[${item.coordinate}]发布了${item.name}!</strong></div>
                         `;
                         messageContainer.appendChild(messageElement);
                     });
@@ -159,7 +167,8 @@
                             "name": items[i]['name'],
                             "price": items[i]['price'],
                             "message": items[i]['message'],
-                            "selectedValue": items[i]['selectedValue']
+                            "selectedValue": items[i]['selectedValue'],
+                            "timestamp": items[i]['timestamp']
                         },
                     }],
                 });
@@ -170,6 +179,7 @@
                     var price = e.geometry.extraData.price;
                     var message = e.geometry.extraData.message;
                     var selectedValue = e.geometry.extraData.selectedValue;
+                    var timestamp = e.geometry.extraData.timestamp;
 
                     // 添加商品到购物车
                     var cartItems = document.getElementById('cart-items');
@@ -177,7 +187,7 @@
                     newItem.dataset.price = price;
                     newItem.classList.add('item', 'bg-gray-100', 'p-4', 'rounded-lg', 'flex', 'justify-between', 'items-center');
                     newItem.innerHTML = `
-                        <div>
+                        <div style="margin-bottom: 5px;">
                             <div><strong>Name:</strong> ${name}</div>
                             <div><strong>Price:</strong> ${price}</div>
                             <div><strong>Message:</strong> ${message}</div>
@@ -198,6 +208,7 @@
                                 <div><strong>价格:</strong> ${price}</div>
                                 <div><strong>介绍:</strong> ${message}</div>
                                 <div><strong>类别:</strong> ${selectedValue}</div>
+                                <div><strong>发布时间:</strong> ${timestamp}</div>
                             </div>
                         `,
                         offset: new TMap.Point(0, -30) // 设置信息窗口的偏移量，以便它正好在 marker 的上方

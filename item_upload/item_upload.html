@@ -6,6 +6,8 @@
     <title>WhuYu·武汉大学二手交易平台</title>
     <link href="../css/tailwind.min.css" rel="stylesheet">
     <link href="./upload.css" rel="stylesheet">
+    <link rel="icon"
+        href="../img/Logo.png">
 
 
 </head>
@@ -17,16 +19,17 @@
                     <img src="../img/Logo.png" alt="Logo">
                     <span class="text-lg font-bold">WhuYu</span>
                 </a>
+                <a href="../index/index.html" class="flex items-center" style="margin-left: 12px;">
+                    <img src="../img/home.png" alt="Logo" style="width: 30px; height: 30px; margin-bottom: 5px;">
+                </a>
             </div>
         </nav>
     </header>
 
-
-    <section id="hello" class="bg-gray-100">
-        <div class="container mx-auto py-8">
-            <h1 class="text-4xl font-bold">物品发布</h1>
-    </div>
-    </section>
+    <a href="../index/index.html" class="fixed right-0 bottom-0 m-5 px-5 py-2 bg-gray-200 text-black rounded" 
+        style="font-size: 20px;font-weight: bold;z-index: 1010;display: flex;align-items: center;">
+        <img src="../img/home.png" alt="home图标" style="width: 40px; height: 40px;">
+    </a>
 
     <section id="map" class="bg-white">
         <div class="container mx-auto py-8">
@@ -60,7 +63,7 @@
 
     <footer class="bg-gray-800 text-white">
         <div class="container mx-auto py-4">
-            <p>版权所有 &copy; 2023 JavaEdge</p>
+            <p> &copy; 2024 WhuYu · 武汉大学二手交易平台</p>
         </div>
     </footer>
     <script src="https://map.qq.com/api/gljs?v=1.exp&key=SMQBZ-FY7KW-GK4RR-R63V4-VRG66-OFBJZ"></script>
@@ -85,6 +88,7 @@
             }
             //Map实例创建后，通过on方法绑定点击事件
             map.on("click",clickHandler)
+            
         }
     </script>
     <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
