@@ -27,14 +27,15 @@ $(document).ready(function () {
         $.ajax({
             url: "https://apis.map.qq.com/ws/geocoder/v1/",
             type: "get",
-            dataType: "json",
+            dataType: "jsonp",
             data: {
-                "key": "SMQBZ-FY7KW-GK4RR-R63V4-VRG66-OFBJZ",
-                "location": lat + "," + lng,
+                key: "SMQBZ-FY7KW-GK4RR-R63V4-VRG66-OFBJZ",
+                location: lat + "," + lng,
                 get_poi: "1",//是否返回周边POI列表：1.返回；0不返回(默认)
                 output: "jsonp"
             },
             success: function (data) {
+                console.log(data);
                 
                 if (data.status == 0) {
                     // var address = data.result.formatted_addresses.recommend;
