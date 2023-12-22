@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+
     <title>WhuYu·武汉大学二手交易平台</title>
     <link rel="icon"
         href="../img/Logo.png">
@@ -12,11 +12,14 @@
     <!-- 导入 Tailwind CSS 样式表 -->
     <link href="../css/tailwind.min.css" rel="stylesheet">
     <link href="./index.css" rel="stylesheet">
+
+    
 </head>
 
 <body>
     <header class="header">
-        <nav class="container mx-auto py-4 flex items-center justify-between">
+        <nav
+            class="container mx-auto py-4 flex items-center justify-between">
             <!-- 将您的公司标志/logo添加到下面的div元素中 -->
             <div class="logo">
                 <a href="../index/index.html" class="flex items-center">
@@ -26,8 +29,9 @@
             </div>
             <!-- 添加导航栏和搜索框 -->
             <div class="flex items-center justify-center">
-                <select class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-gray-800 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">            
-                    <option value="" disabled selected>物品类别检索</option>
+                <select
+                    class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-gray-800 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                    <option value disabled selected>物品类别检索</option>
                     <option value="category1">教材</option>
                     <option value="category2">学习资料</option>
                     <option value="category3">电子产品</option>
@@ -38,7 +42,6 @@
             </div>
         </nav>
     </header>
-
 
     <section id="hello" class="bg-gray-100">
         <div class="container mx-auto py-8">
@@ -55,37 +58,49 @@
     <section id="products" class="bg-gray-100">
         <div class="container mx-auto py-8">
             <h2 class="text-3xl font-bold">功能栏</h2>
-            <div class="grid grid-cols-3 gap-8" style="grid-template-columns: 1fr 2fr;margin-top: 10px;">
-                <div class="bg-white rounded-lg shadow p-6  max-h-64 overflow-auto">
-                    <img src="../img/GN.png" width="50" style="margin-top: 5px;">
-                    <a href="../item_upload/item_upload.html" class="text-xl font-bold">物品发布</a>
-                    <p style="font-size: 18px; font-weight: bold;margin-top: 20px;">快来发布你想出售的物品信息吧！</p>                   
+            <div class="grid grid-cols-3 gap-8"
+                style="grid-template-columns: 1fr 2fr;margin-top: 10px;">
+                <div
+                    class="bg-white rounded-lg shadow p-6  max-h-64 overflow-auto">
+                    <img src="../img/GN.png" width="50"
+                        style="margin-top: 5px;">
+                    <a href="../item_upload/item_upload.html"
+                        class="text-xl font-bold">物品发布</a>
+                    <p
+                        style="font-size: 18px; font-weight: bold;margin-top: 20px;">快来发布你想出售的物品信息吧！</p>
                 </div>
-                
-                <div class="bg-white rounded-lg shadow p-6  max-h-64 overflow-auto">
-                    <img src="../img/message.png" width="50" style="margin-top: 5px;">
-                        <h3 class="text-xl font-bold">消息动态</h3>
-                <div id="messages" class="mt-4">
-                    <!-- 消息将在这里显示 -->
-                </div>
+
+                <div
+                    class="bg-white rounded-lg shadow p-6  max-h-64 overflow-auto">
+                    <img src="../img/message.png" width="50"
+                        style="margin-top: 5px;">
+                    <h3 class="text-xl font-bold">消息动态</h3>
+                    <div id="messages" class="mt-4">
+                        <!-- 消息将在这里显示 -->
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- 购物车弹窗 -->
-    <div id="cart-modal" class="fixed right-0 top-0 h-full w-96 bg-white p-5 overflow-auto hidden" style="z-index: 1000;">
+    <div id="cart-modal"
+        class="fixed right-0 top-0 h-full w-96 bg-white p-5 overflow-auto hidden"
+        style="z-index: 1000;">
         <h2 class="text-lg font-bold mb-5">购物车</h2>
         <div id="cart-items">
             <!-- 购物车中的商品将在这里显示 -->
         </div>
-        <button id="checkout" class="mt-5 px-5 py-2 bg-blue-500 text-white rounded">结算</button>
+        <button id="checkout"
+            class="mt-5 px-5 py-2 bg-blue-500 text-white rounded">结算</button>
     </div>
 
     <!-- 显示购物车弹窗的按钮 -->
-    <button id="show-cart" class="fixed right-0 bottom-0 m-5 px-5 py-2 bg-blue-200 text-black rounded" 
+    <button id="show-cart"
+        class="fixed right-0 bottom-0 m-5 px-5 py-2 bg-blue-200 text-black rounded"
         style="font-size: 20px;font-weight: bold;z-index: 1010;display: flex;align-items: center;">
-        <img src="../img/gwc.png" alt="购物车图标" style="width: 40px; height: 40px; margin-right: 10px;">
+        <img src="../img/gwc.png" alt="购物车图标"
+            style="width: 40px; height: 40px; margin-right: 10px;">
         购物车
     </button>
 
@@ -94,8 +109,10 @@
             <p> &copy; 2024 WhuYu · 武汉大学二手交易平台</p>
         </div>
     </footer>
-    <script src="https://map.qq.com/api/gljs?v=1.exp&key=SMQBZ-FY7KW-GK4RR-R63V4-VRG66-OFBJZ"></script>
-    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script
+        src="https://map.qq.com/api/gljs?v=1.exp&key=SMQBZ-FY7KW-GK4RR-R63V4-VRG66-OFBJZ"></script>
+    <script
+        src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
         var items = [];
         
@@ -128,95 +145,110 @@
                         
                         var messageElement = document.createElement('div');
                         messageElement.innerHTML = `
-                            <div><strong>${item.timestamp}, 一位用户在[${item.coordinate}]发布了${item.name}!</strong></div>
+                            <div><strong>${item.timestamp}, 一位用户在[${item.locationName}]发布了${item.name}!</strong></div>
                         `;
                         messageContainer.appendChild(messageElement);
                     });
                 });
         });
+        
         function initMap() {
-            //定义地图中心点坐标
-            var center = new TMap.LatLng(30.539120, 114.364484)
-            //定义map变量，调用 TMap.Map() 构造函数创建地图
-            var map = new TMap.Map(document.getElementById('container'), {
-                center: center,//设置地图中心点坐标
-                zoom: 17.2,   //设置地图缩放级别
-                pitch: 43.5,  //设置俯仰角
-                rotation: 45    //设置地图旋转角度
-            });
-            console.log(items);
-            for (var i = 0; i < items.length; i++) {
-                console.log(1);
-                var marker = new TMap.MultiMarker({
-                    map: map,
-                    styles: {
-                        // 点标记样式
-                        marker: new TMap.MarkerStyle({
-                            width: 20, // 样式宽
-                            height: 30, // 样式高
-                            src: "../img/Marker.png", // 图片地址
-                            anchor: { x: 10, y: 30 }, // 描点位置
-                        }),
-                    },
-                    geometries: [{
-                        "id": items[i]['id'],
-                        "styleId": 'marker',
-                        "position": new TMap.LatLng(items[i]['coordinate'][0], items[i]['coordinate'][1]),
-                        markerid: 'marker' + i,
-                        extraData: {
-                            "name": items[i]['name'],
-                            "price": items[i]['price'],
-                            "message": items[i]['message'],
-                            "selectedValue": items[i]['selectedValue'],
-                            "timestamp": items[i]['timestamp']
-                        },
-                    }],
-                });
-                // 添加点击事件监听器
-                marker.on("click", function (e) {
-                    // 获取额外的属性
-                    var name = e.geometry.extraData.name;
-                    var price = e.geometry.extraData.price;
-                    var message = e.geometry.extraData.message;
-                    var selectedValue = e.geometry.extraData.selectedValue;
-                    var timestamp = e.geometry.extraData.timestamp;
+            //定义地图中心点坐标            
+            fetch('http://localhost:5000/latest-items')
+                .then(response => response.json())
+                .then(data => {
+                    // 获取数组的最后一个元素
+                    var latestItem = data[data.length - 1];
+                    var center = new TMap.LatLng(latestItem.coordinate[0], latestItem.coordinate[1]);
 
-                    // 添加商品到购物车
-                    var cartItems = document.getElementById('cart-items');
-                    var newItem = document.createElement('div');
-                    newItem.dataset.price = price;
-                    newItem.classList.add('item', 'bg-gray-100', 'p-4', 'rounded-lg', 'flex', 'justify-between', 'items-center');
-                    newItem.innerHTML = `
-                        <div style="margin-bottom: 5px;">
-                            <div><strong>Name:</strong> ${name}</div>
-                            <div><strong>Price:</strong> ${price}</div>
-                            <div><strong>Message:</strong> ${message}</div>
-                            <div><strong>Selected Value:</strong> ${selectedValue}</div>
-                        </div>
-                        <button class='delete-item bg-red-500 text-white px-2 py-1 rounded mt-4'>删除</button>
-                    `;
-                    cartItems.appendChild(newItem);
-
-                    // 创建信息窗口
-                    var infoWindow = new TMap.InfoWindow({
-                        map: map,
-                        position: e.geometry.position, // 设置信息窗口的位置为 marker 的位置
-                        // 在信息窗口的内容中显示额外的属性
-                        content: `
-                            <div class="p-4 bg-white rounded-lg">
-                                <div><strong>名称:</strong> ${name}</div>
-                                <div><strong>价格:</strong> ${price}</div>
-                                <div><strong>介绍:</strong> ${message}</div>
-                                <div><strong>类别:</strong> ${selectedValue}</div>
-                                <div><strong>发布时间:</strong> ${timestamp}</div>
-                            </div>
-                        `,
-                        offset: new TMap.Point(0, -30) // 设置信息窗口的偏移量，以便它正好在 marker 的上方
+                    // 定义 map 变量，调用 TMap.Map() 构造函数创建地图
+                    var map = new TMap.Map(document.getElementById('container'), {
+                        center: center, // 设置地图中心点坐标
+                        zoom: 18,   //设置地图缩放级别
+                        pitch: 43.5,  //设置俯仰角
+                        rotation: 45    //设置地图旋转角度
                     });
-                });
 
+                    // 在这里创建标记
+                    for (var i = 0; i < data.length; i++) {
+                        var marker = new TMap.MultiMarker({
+                            map: map,
+                            styles: {
+                                // 点标记样式
+                                marker: new TMap.MarkerStyle({
+                                    width: 30, // 样式宽
+                                    height: 35, // 样式高
+                                    src: "../img/Marker.png", // 图片地址
+                                    anchor: { x: 10, y: 30 }, // 描点位置
+                                }),
+                            },
+                            geometries: [{
+                                "id": data[i]['id'],
+                                "styleId": 'marker',
+                                "position": new TMap.LatLng(data[i]['coordinate'][0], data[i]['coordinate'][1]),
+                                // markerid: 'marker' + i,
+                                extraData: {
+                                    "name": data[i]['name'],
+                                    "price": data[i]['price'],
+                                    "message": data[i]['message'],
+                                    "selectedValue": data[i]['selectedValue'],
+                                    "timestamp": data[i]['timestamp'],
+                                    "locationName": data[i]['locationName']
+                                },
+                            }],
+                        });
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
             
+            
+            // 添加点击事件监听器
+            marker.on("click", function (e) {
+                // 获取额外的属性
+                var name = e.geometry.extraData.name;
+                var price = e.geometry.extraData.price;
+                var message = e.geometry.extraData.message;
+                var selectedValue = e.geometry.extraData.selectedValue;
+                var timestamp = e.geometry.extraData.timestamp;
+
+                // 添加商品到购物车
+                var cartItems = document.getElementById('cart-items');
+                var newItem = document.createElement('div');
+                newItem.dataset.price = price;
+                newItem.classList.add('item', 'bg-gray-100', 'p-4', 'rounded-lg', 'flex', 'justify-between', 'items-center');
+                newItem.innerHTML = `
+                    <div style="margin-bottom: 5px;">
+                        <div><strong>Name:</strong> ${name}</div>
+                        <div><strong>Price:</strong> ${price}</div>
+                        <div><strong>Message:</strong> ${message}</div>
+                        <div><strong>Selected Value:</strong> ${selectedValue}</div>
+                    </div>
+                    <button class='delete-item bg-red-500 text-white px-2 py-1 rounded mt-4'>删除</button>
+                `;
+                cartItems.appendChild(newItem);
+
+                // 创建信息窗口
+                var infoWindow = new TMap.InfoWindow({
+                    map: map,
+                    position: e.geometry.position, // 设置信息窗口的位置为 marker 的位置
+                    // 在信息窗口的内容中显示额外的属性
+                    content: `
+                        <div class="p-4 bg-white rounded-lg">
+                            <div><strong>名称:</strong> ${name}</div>
+                            <div><strong>价格:</strong> ${price}</div>
+                            <div><strong>介绍:</strong> ${message}</div>
+                            <div><strong>类别:</strong> ${selectedValue}</div>
+                            <div><strong>发布时间:</strong> ${timestamp}</div>
+                        </div>
+                    `,
+                    offset: new TMap.Point(0, -30) // 设置信息窗口的偏移量，以便它正好在 marker 的上方
+                });
+            });
         }
+        
+        
         document.getElementById('show-cart').addEventListener('click', function() {
             var cartModal = document.getElementById('cart-modal');
             if (cartModal.classList.contains('hidden')) {
@@ -239,7 +271,6 @@
             }
             alert("总价格：" + total);
         });
-    }
     </script>
     <script src="index.js"></script>
 </body>

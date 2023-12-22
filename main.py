@@ -46,7 +46,8 @@ def add_item():
         "message": item['message'],
         "coordinate": item['coordinate'],
         "selectedValue": item['selectedValue'],
-        "timestamp" : item['timestamp']
+        "timestamp" : item['timestamp'],
+        "locationName":item['locationName']
     }
     items.append(new_item)
     with open('./data/items.json', 'w', encoding='utf-8') as f:
