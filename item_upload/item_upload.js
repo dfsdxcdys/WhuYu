@@ -9,6 +9,7 @@ $(document).ready(function () {
         var lng = $("#longitude").val();
         var selectElement = document.getElementById('category');
         var selectedValue = selectElement.options[selectElement.selectedIndex].text;
+        var username = username;
 
         // 检查各个输入框是否已填写
         if (!name || !price || !message || !lat || !lng || !selectedValue) {
@@ -21,6 +22,12 @@ $(document).ready(function () {
         var timestamp = Date.now();
         var date = new Date(timestamp);
         var localDateString = date.toLocaleString(); // 将日期格式化为本地字符串
+        // 获取 URL 中的参数
+        var params = new URLSearchParams(window.location.search);
+        var username = params.get('username');
+        if (!username) {
+            username = 'root'; // 默认用户名
+        }
 
         var locationName = []; // 地点名称
 
@@ -57,7 +64,8 @@ $(document).ready(function () {
                         coordinate: coordinate,
                         selectedValue: selectedValue,
                         timestamp: localDateString,
-                        locationName: locationName // 添加地点名称
+                        locationName: locationName, // 添加地点名称
+                        username: username
                     })
                 })
                 .then(response => response.json())

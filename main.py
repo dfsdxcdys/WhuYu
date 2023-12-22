@@ -47,7 +47,8 @@ def add_item():
         "coordinate": item['coordinate'],
         "selectedValue": item['selectedValue'],
         "timestamp" : item['timestamp'],
-        "locationName":item['locationName']
+        "locationName":item['locationName'],
+        "username": item['username']
     }
     items.append(new_item)
     with open('./data/items.json', 'w', encoding='utf-8') as f:

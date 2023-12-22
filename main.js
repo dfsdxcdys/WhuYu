@@ -25,7 +25,6 @@ $(document).ready(function(){
         // 获取用户输入的用户名和密码
         var username = $("#username").val();
         var password = $("#password").val();
-        console.log(1);
 
         // 发送POST请求到/login路由来登录用户
         fetch('http://localhost:5000/login', {
@@ -40,7 +39,7 @@ $(document).ready(function(){
         }).then(response => response.json())
         .then(data => {
             if (data.message === "登录成功！") {
-                window.location.href = "index/index.html";
+                window.location.href = "index/index.html?username="+username;
                 alert("登录成功！");
             } else {
                 alert(data.message);
