@@ -70,18 +70,14 @@
                 style="grid-template-columns: 1fr 2fr;margin-top: 10px;">
                 <div
                     class="bg-white rounded-lg shadow p-6  max-h-64 overflow-auto">
-                    <img src="../img/GN.png" width="50"
-                        style="margin-top: 5px;">
-                    <a id="itemUploadLink"
-                        class="text-xl font-bold">物品发布</a>
-                    <p
-                        style="font-size: 18px; font-weight: bold;margin-top: 20px;">快来发布你想出售的物品信息吧！</p>
+                    <img src="../img/GN.png" width="50" style="margin-top: 5px;">
+                    <a id="itemUploadLink" class="text-xl font-bold">物品发布</a>
+                    <p style="font-size: 18px; font-weight: bold;margin-top: 20px;">快来发布你想出售的物品信息吧！</p>
                 </div>
 
                 <div
                     class="bg-white rounded-lg shadow p-6  max-h-64 overflow-auto">
-                    <img src="../img/message.png" width="50"
-                        style="margin-top: 5px;">
+                    <img src="../img/message.png" width="50" style="margin-top: 5px;">
                     <h3 class="text-xl font-bold">消息动态</h3>
                     <div id="messages" class="mt-4">
                         <!-- 消息将在这里显示 -->
@@ -99,8 +95,9 @@
         <div id="cart-items">
             <!-- 购物车中的商品将在这里显示 -->
         </div>
-        <button id="checkout"
-            class="mt-5 px-5 py-2 bg-blue-500 text-white rounded">结算</button>
+        <button id="checkout" class="mt-5 px-5 py-2 bg-blue-500 text-white rounded">结算</button>
+        <!-- <div id="total-price"></div> -->
+        <h2  id="total-price" class="text-lg font-bold mb-5" style="margin-top: 30px;"></h2>
     </div>
 
     <!-- 显示购物车弹窗的按钮 -->
@@ -114,7 +111,7 @@
 
     <footer class="bg-gray-800 text-white">
         <div class="container mx-auto py-5">
-            <p> &copy; 2024 WhuYu · 武汉大学二手交易平台</p>
+            <p><strong> &copy; 2024 WhuYu · 武汉大学二手交易平台</strong></p>
         </div>
     </footer>
     <script
@@ -159,7 +156,7 @@
                         
                         var messageElement = document.createElement('div');
                         messageElement.innerHTML = `
-                            <div><strong>${item.timestamp}, ${item.username}在${item.locationName}发布了${item.name}!</strong></div>
+                            <div>${item.timestamp}, <strong>${item.username}</strong> 在 <strong>${item.locationName}</strong> 发布了 <strong>${item.name}!</strong></div>
                         `;
                         messageContainer.appendChild(messageElement);
                     });
@@ -242,6 +239,7 @@
                             <div><strong>Selected Value:</strong> ${selectedValue}</div>
                         </div>
                         <button class='delete-item bg-red-500 text-white px-2 py-1 rounded mt-4'>删除</button>
+                        
                     `;
                     cartItems.appendChild(newItem);
 
@@ -268,12 +266,8 @@
 
             
         }
+
         
-<<<<<<< HEAD
-        
-        
-=======
->>>>>>> 659e54929a54c11338edf9307c222d6db971cadf
         document.getElementById('show-cart').addEventListener('click', function() {
             var cartModal = document.getElementById('cart-modal');
             if (cartModal.classList.contains('hidden')) {
@@ -294,7 +288,8 @@
             for (var i = 0; i < cartItems.length; i++) {
                 total += parseFloat(cartItems[i].dataset.price);
             }
-            alert("总价格：" + total);
+            // alert("总价格：" + total);
+            document.getElementById('total-price').textContent = "总价格：" + total + "元";
         });
         // 添加 change 事件处理函数
         document.getElementById('select').addEventListener('change', function() {
