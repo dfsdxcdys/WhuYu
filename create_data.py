@@ -2,7 +2,7 @@ import json
 import random
 
 def generate_items(num_items):
-    properties = ['electronics', 'clothing', 'books', 'furniture', 'others']
+    properties = ["考研资料", "电子设备", "家具", "图书", "衣物"]
     items = []
 
     for i in range(1, num_items + 1):
@@ -15,6 +15,8 @@ def generate_items(num_items):
         items.append(item)
 
     return items
+
+
 
 items = generate_items(100)  # 生成100个物品信息
 

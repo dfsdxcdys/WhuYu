@@ -43,14 +43,14 @@
     },
     {
         "id": 4,
-        "name": "1",
+        "name": "蓝牙耳机",
         "price": "100",
         "message": "11",
         "coordinate": [
             "30.538717",
             "114.366116"
         ],
-        "selectedValue": "教材",
+        "selectedValue": "电子产品",
         "timestamp": "2023/12/22 17:33:43",
         "locationName": "湖北省武汉市武昌区文体路",
         "username": "root"
