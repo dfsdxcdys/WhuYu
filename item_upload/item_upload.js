@@ -96,41 +96,4 @@ $("#submit_item").click(function (e) {
             });
         }
     });
-
-
-    
-
-    // // 通过经纬度获取地址描述
-    // // 使用 geocoder 对象的 getAddress 方法进行逆地址解析
-    // geocoder.getAddress(new TMap.LatLng(lat, lng), function(result) {
-    //     if (result.status === 0) {
-    //         var locationName = result.result.address; // 获取地点名称
-
-    //         // 在 fetch 请求的 body 中添加 locationName 字段
-    //         fetch('http://localhost:5000/items', {
-    //             method: 'POST',
-    //             headers: {
-    //                 'Content-Type': 'application/json'
-    //             },
-    //             body: JSON.stringify({
-    //                 name: name,
-    //                 price: price,
-    //                 message: message,
-    //                 coordinate: coordinate,
-    //                 selectedValue: selectedValue,
-    //                 timestamp: localDateString,
-    //                 locationName: locationName // 添加地点名称
-    //             })
-    //         })        
-    //         .then(response => response.json())
-    //         .then(data => {
-    //             alert(data.message);
-    //             console.log(data.item.locationName); // 输出地址信息
-    //         });
-    //     } else {
-    //         console.error('Geocoding failed: ' + result.message);
-    //     }
-    // });
-
-
 });
